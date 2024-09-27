@@ -1,0 +1,20 @@
+vector is a dynamic type od array and defaut size of the vector is zero , vector increased the size 
+based on the element means double the size of the array 
+
+Decleration - 
+
+        vector <int> arr;
+
+Initialization -
+ 
+        vector <int> arr{10 , 20 , 30 };
+        vector <int> arr(10 , -1); --> Initialization with -1 with the array of size 10
+
+Insert the element in the vector
+
+            arr.push_back(10); --> it will insert the element to the vector
+            arr.pop_back(); --> it will delete the element from the vector
+            arr.size(); --> it will return the size of the vector
+            arr.empty(); --> it will return the arr is empty or not 
+
+

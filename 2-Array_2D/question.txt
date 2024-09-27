@@ -1,0 +1,27 @@
+
+very important formula - c*i + j where c is coloum and i and j are index
+
+2D array use call by reference once passing the function
+
+
+
+
+
+1 Que - print the Rowwise 2d Array
+
+2 Que - write a Program to print the 2D array in columnwise 
+
+3 Ques - write a Programto print the Row sun of 2D Array
+
+4 Ques - write a Programto print the Col sun of 2D Array
+
+5 Ques - linear Serach in Array
+
+6 Ques - Maximum and minimum element in the Array 
+
+7 Ques - write a Program to convert matrix to the transpose of the the same matrix , 
+         condition that should be square of the matrix 
+
+8 Ques - transpose of the Matrix without any conition
+
+9 Ques - create a 2D array by using the vector functionality 

@@ -1,0 +1,15 @@
+[
+	{
+		"test": "5\n",
+		"uncorrect_answers":
+		[
+			"enter the number for printing the fibonacci series \nfibonachi is 5"
+		]
+	},
+	{
+		"test": "10\n"
+	},
+	{
+		"test": "7\n"
+	}
+]
