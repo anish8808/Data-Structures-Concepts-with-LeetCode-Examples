@@ -19,7 +19,7 @@ public:
         }
     }
 
-    void PrintLevelOrder(int src)
+    void bfsTraversal(int src)
     {
         queue<int> que;
         unordered_map<int, bool> visited;
@@ -41,16 +41,49 @@ public:
             }
         }
     }
+
+    void dfs(int node, unordered_map<int, bool> &visited)
+    {
+        // base condition
+        if (visited[node])
+        {
+            return;
+        }
+
+        cout << node << " ";
+        if (!visited[node])
+        {
+            visited[node] = true;
+            for (auto it : addList[node])
+            {
+                int newNode = it.first;
+                dfs(newNode, visited);
+            }
+        }
+    }
+
+    void dfsTraversal(int node)
+    {
+        unordered_map<int, bool> visited;
+
+        dfs(node, visited);
+    }
 };
 
 int main()
 {
     Graph g;
-    g.addEdge(0, 1, 10, 1);
-    g.addEdge(0, 2, 20, 1);
-    g.addEdge(1, 2, 30, 1);
-    g.addEdge(2, 3, 40, 1);
-    g.PrintLevelOrder(0);
-
+    g.addEdge(0, 3, 3, 1);
+    g.addEdge(0, 5, 3, 1);
+    g.addEdge(0, 2, 3, 1);
+    g.addEdge(2, 5, 3, 1);
+    g.addEdge(3, 5, 3, 1);
+    g.addEdge(5, 4, 3, 1);
+    g.addEdge(5, 6, 3, 1);
+    g.addEdge(4, 1, 3, 1);
+    g.addEdge(6, 1, 3, 1);
+    g.bfsTraversal(0);
+    cout << endl;
+    g.dfsTraversal(0);
     return 0;
 }
