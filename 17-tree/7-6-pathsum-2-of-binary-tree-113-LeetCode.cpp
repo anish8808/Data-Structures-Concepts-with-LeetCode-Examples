@@ -68,7 +68,7 @@ vector<vector<int>> pathSum(Node *root, int targetSum)
 int main()
 {
     Node *root = createTree();
-    vector<vector<int>> ans = pathSum(root, 22); // 3,9,-1 ,-1 ,20,15,-1,-1,7,-1,-1
+    vector<vector<int>> ans = pathSum(root, 22); // 3,9,-1 ,-1 ,20,15,-1,-1,7,-1,-1 //
     for (auto i : ans)
     {
         for (auto j : i)
