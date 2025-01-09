@@ -56,7 +56,7 @@ vector<int> topView(Node *root)
         maxXtream = max(maxXtream, hd);
         que.pop();
         if (map.find(hd) == map.end())
-            map[hd] = frontNode;
+            map[hd] = frontNode; // each time we have to check and store the unique distance that come first in vertical ordere
 
         if (frontNode->left != NULL)
         {

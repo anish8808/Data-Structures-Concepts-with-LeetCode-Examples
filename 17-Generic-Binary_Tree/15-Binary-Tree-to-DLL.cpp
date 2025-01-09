@@ -1,4 +1,6 @@
-// leetcode.com/problems/balanced-binary-tree/
+// https://www.geeksforgeeks.org/problems/binary-tree-to-dll/0
+
+// https://www.geeksforgeeks.org/bottom-view-binary-tree/
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -38,31 +40,38 @@ Node *createTree()
         return root;
     }
 }
-
-int height(Node *root)
+void solve(Node *root, Node *&head)
 {
     if (root == NULL)
-        return 0;
+        return;
 
-    int ansleft = height(root->left);
-    int ansright = height(root->right);
-    return 1 + max(ansleft, ansright);
+    solve(root->right, head);
+    root->right = head;
+    if (head != NULL)
+    {
+        head->left = root;
+    }
+    head = root;
+
+    solve(root->left, head);
 }
 
-bool isBalanced(Node *root)
+Node *bToDLL(Node *root)
 {
-    if (root == NULL)
-        return true;
+    Node *head = NULL;
+    solve(root, head);
 
-    bool leftsubtree = isBalanced(root->left);
-    bool rightsubtree = isBalanced(root->right);
-    bool hieghtdiff = abs(height(root->left) - height(root->right)) <= 1 ? true : false;
-    return (leftsubtree && rightsubtree) && hieghtdiff;
+    return head;
 }
 
 int main()
 {
     Node *root = createTree();
-    cout << isBalanced(root); // 3,9,-1 ,-1 ,20,15,-1,-1,7,-1,-1
+    root = bToDLL(root);
+    while (root != NULL)
+    {
+        cout << root->data << " ";
+        root = root->right;
+    }
     return 0;
 }
