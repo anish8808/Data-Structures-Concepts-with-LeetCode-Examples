@@ -101,6 +101,7 @@ int kthSmallest(TreeNode *root, int k)
 int main()
 {
     TreeNode *root = createTree();
-    root = kthSmallest(root, 3);
+    int ans  = kthSmallest(root, 3);
+    cout << ans << endl;
     return 0;
 }
