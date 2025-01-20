@@ -19,13 +19,13 @@ void solve2(int arr[], int index, int size)
 
     cout << arr[index];
 
-    solve(arr, index + 1, size);
+    solve2(arr, ++index, size);
 }
 int main()
 {
     int arr[6] = {1, 2, 3, 4, 5, 6};
     int size = 6;
     int index = 0;
-    solve(arr, index, size);
+    solve2(arr, index, size);
     return 0;
 }
