@@ -81,5 +81,6 @@ int main()
     pq.insert(40);
     pq.insert(50);
     pq.printHeap();
+    pq.printHeap();
     return 0;
 }
