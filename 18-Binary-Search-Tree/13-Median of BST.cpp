@@ -78,6 +78,105 @@ float findMedian(TreeNode *root)
     }
 }
 
+// another approached using morris traversal
+
+int MorriesCountNode(TreeNode *root)
+{
+    if (root == NULL)
+        return 0;
+    int count = 0;
+    TreeNode *curr = root;
+    while (curr)
+    {
+        if (curr->left == NULL)
+        {
+            count++;
+            curr = curr->right;
+        }
+        else
+        {
+            TreeNode *pred = curr->left;
+            while (pred->right != curr && pred->right)
+            {
+                pred = pred->right;
+            }
+
+            if (pred->right == NULL)
+            {
+                pred->right = curr;
+                curr = curr->left;
+            }
+            else
+            {
+                pred->right = NULL;
+                count++;
+                curr = curr->right;
+            }
+        }
+    }
+
+    return count;
+}
+
+float MorriesMidean(TreeNode *root, int n)
+{
+    int odval1 = n / 2;
+    int even1 = (n / 2) - 1;
+    int median1 = 0;
+    int median2 = 0;
+
+    if (root == NULL)
+        return 0;
+
+    int count = 0;
+    TreeNode *curr = root;
+    while (curr)
+    {
+        if (curr->left == NULL)
+        {
+            if (odval1 == count)
+                median1 = curr->val;
+            if (even1 == count)
+                median2 = curr->val;
+            count++;
+            curr = curr->right;
+        }
+        else
+        {
+            TreeNode *pred = curr->left;
+            while (pred->right != curr && pred->right)
+            {
+                pred = pred->right;
+            }
+
+            if (pred->right == NULL)
+            {
+                pred->right = curr;
+                curr = curr->left;
+            }
+            else
+            {
+                pred->right = NULL;
+                if (odval1 == count)
+                    median1 = curr->val;
+                if (even1 == count)
+                    median2 = curr->val;
+                count++;
+                curr = curr->right;
+            }
+        }
+    }
+
+    return (n % 2 == 0) ? (median1 + median2) / 2.0 : median1;
+}
+
+float findMedian2(TreeNode *root)
+{
+    int n = MorriesCountNode(root);
+    float ans = MorriesMidean(root, n);
+    return ans;
+}
+
 int main()
 {
     TreeNode *root = createTree();

@@ -73,7 +73,8 @@ vector<int> inorderTraversal(TreeNode *root)
             {
                 pred->right = NULL;
                 ans.push_back(curr->val);
-                curr = curr->right;
+                
+                
             }
         }
     }
