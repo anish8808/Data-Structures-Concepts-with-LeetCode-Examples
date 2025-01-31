@@ -72,7 +72,7 @@ void HeapSort(int *arr, int n)
 int main()
 {
 
-    int arr[] = {-1, 10, 20, 30, 40, 50};
+    int arr[] = {-1, 30, 20, 30, 10, 50};
     int n = 6;
     buildHeap(arr, n);
 
