@@ -69,10 +69,25 @@ void HeapSort(int *arr, int n)
         cout << endl;
     }
 }
+
+int KthLargestElement(int *arr, int n, int k)
+{
+    int end = n - 1;
+    while (end >= n - k + 1)
+    {
+        swap(arr[1], arr[end]);
+        heapfiy(arr, end, 1);
+        end--;
+
+        cout << endl;
+    }
+
+    return arr[1];
+}
 int main()
 {
 
-    int arr[] = {-1, 30, 20, 30, 10, 50};
+    int arr[] = {-1, 30, 20, 40, 10, 50};
     int n = 6;
     buildHeap(arr, n);
 
@@ -82,12 +97,15 @@ int main()
     cout << endl;
 
     // calling the heap sort
-    HeapSort(arr, n);
+    // HeapSort(arr, n);
 
     cout << "Printing the heapsort" << endl;
     for (int i = 1; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
+
+    int ans = KthLargestElement(arr, n, 2);
+    cout << ans;
 
     return 0;
 }
