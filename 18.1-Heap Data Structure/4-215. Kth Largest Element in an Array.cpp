@@ -1,10 +1,5 @@
 // https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 
-// added
-
-// https://leetcode.com/problems/kth-largest-element-in-an-array/description/
-
-// added
 #include <bits/stdc++.h>
 
 using namespace std;
