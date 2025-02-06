@@ -34,6 +34,49 @@ using namespace std;
 //     return ans;
 // }
 
+//---->optimized solution
+
+/*
+
+    class Solution {
+public:
+    class compare{
+        public:
+        bool operator()(ListNode* a , ListNode* b)
+        {
+            return a->val > b->val;
+        }
+    };
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<ListNode* , vector<ListNode*> , compare>pq;
+        for(ListNode* i :lists)
+        {
+            if(i!=NULL)
+                pq.push(i);
+        }
+
+        if (pq.empty()) {
+            return nullptr;
+        }
+
+        ListNode* temp =  new ListNode(-1);
+        ListNode* ans = temp ;
+        while(!pq.empty())
+        {
+            ListNode* head =  pq.top();
+            pq.pop();
+            temp->next = head ;
+            temp = head;
+            if(head->next!=NULL)
+            {
+                pq.push(head->next);
+            }
+        }
+
+        return ans->next ;
+    }
+};
+*/
 int main()
 {
     vector<int> nums{1, 4, 5, 22, 2, 3};
