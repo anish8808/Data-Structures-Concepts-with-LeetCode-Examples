@@ -12,6 +12,12 @@
     Rules of formulas:
     if we want to find the position of left child of any root node - 2*i & for right child  2*i+1;
     if we want find the parent node index of any child the just (i/2);
+
+    In a 1-based indexed heap, the left and right children are:
+    Left child = 2 * index
+    Right child = 2 * index + 1
+    However, in a 0-based indexed heap, they should be:
+
  */
 
 #include <bits/stdc++.h>
