@@ -29,6 +29,31 @@ int lengthOfLIS(vector<int> &nums)
 
 // DP solution
 
+// solve using tabulation Method
+int solveUsingTab(vector<int> &nums)
+{
+    int n = nums.size();
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0)); // DP table
+
+    // Bottom-up DP filling
+    for (int i = n - 1; i >= 0; i--)
+    {
+        for (int prev = i - 1; prev >= -1; prev--)
+        { // Fix: prev starts from i-1
+            int include = 0;
+            if (prev == -1 || nums[i] > nums[prev])
+            {
+                include = 1 + dp[i + 1][i + 1]; // Fix: Correct transition
+            }
+            int exclude = dp[i + 1][prev + 1]; // Moving to next index
+
+            dp[i][prev + 1] = max(include, exclude);
+        }
+    }
+
+    return dp[0][0]; // The LIS length
+}
+
 int solveMem(vector<int> &nums, int i, int lastIndex, vector<vector<int>> &dp)
 {
     if (i >= nums.size())

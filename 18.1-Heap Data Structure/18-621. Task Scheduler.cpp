@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/maximum-score-from-removing-stones/description/
-// https://leetcode.com/problems/maximum-score-from-removing-stones/description/
+
 #include <bits/stdc++.h>
 
 using namespace std;
