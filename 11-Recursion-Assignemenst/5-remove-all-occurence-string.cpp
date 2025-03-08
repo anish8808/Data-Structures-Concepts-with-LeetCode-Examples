@@ -19,6 +19,14 @@ void solve(string &str, string &part)
     //  str.erase(pos , part.length());
     // this will be alternate solutions
     // str.erase(pos , part.length());
+    // this will be alternate solutions
+    //  str.erase(pos , part.length());
+    // this will be alternate solutions
+    // str.erase(pos , part.length());
+    // this will be alternate solutions
+    //  str.erase(pos , part.length());
+    // this will be alternate solutions
+    // str.erase(pos , part.length());
     return solve(str, part);
 }
 
