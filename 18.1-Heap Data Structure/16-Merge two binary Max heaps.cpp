@@ -1,11 +1,13 @@
 // https://leetcode.com/problems/maximum-score-from-removing-stones/description/
 
 // https://leetcode.com/problems/maximum-score-from-removing-stones/description/
+// https://leetcode.com/problems/maximum-score-from-removing-stones/description/
+// https://leetcode.com/problems/maximum-score-from-removing-stones/description/
 #include <bits/stdc++.h>
 
 using namespace std;
 
-void heapfiy(vector<int> &ans, int n, int currentIndex)
+void heapfiy(vector<int> &ans, int n, int currentIndex) s
 {
     int largestIndex = currentIndex;
     int leftIndex = 2 * currentIndex + 1;
