@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void heapfiy(vector<int> &ans, int n, int currentIndex) s
+void heapfiy(vector<int> &ans, int n, int currentIndex)
 {
     int largestIndex = currentIndex;
     int leftIndex = 2 * currentIndex + 1;
