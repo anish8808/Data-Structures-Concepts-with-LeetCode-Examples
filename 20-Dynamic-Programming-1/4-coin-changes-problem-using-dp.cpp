@@ -50,16 +50,42 @@ int solveDP(vector<int> &arr, int target, vector<int> &dp)
 
     return dp[target] = mini; // Store result and return
 }
+int solveUsingTab(vector<int> &coins, int amount)
+{
+    vector<int> dp(amount + 1, -1);
+    dp[0] = 0;
+
+    for (int amt = 1; amt <= amount; amt++)
+    {
+        int minicount = INT_MAX;
+        for (int i = 0; i < coins.size(); i++)
+        {
+            if (amt - coins[i] >= 0)
+            {
+                int ans = dp[amt - coins[i]];
+                if (ans != INT_MAX)
+                {
+                    minicount = min(minicount, ans + 1);
+                }
+            }
+        }
+        dp[amt] = minicount;
+    }
+
+    return dp[amount];
+}
 
 int main()
 {
     vector<int> arr{1, 2, 3};
     int target = 5;
 
-    // DP table to store results for subproblems
-    vector<int> dp(target + 1, -1);
+    // DP table to store results for subproblems using memoisation
+    // vector<int> dp(target + 1, -1);
 
-    int ans = solve(arr, target, dp);
+    // int ans = solve(arr, target, dp);
+
+    int ans = solveUsingTab(arr, target);
 
     if (ans == INT_MAX)
         cout << "No solution possible to reach the target money." << endl;
