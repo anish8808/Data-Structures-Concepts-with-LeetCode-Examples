@@ -29,6 +29,37 @@ int solve(int capacity, vector<int> &val, vector<int> &wt, int index)
     return final;
 }
 
+// solve using memoisation DP
+int solveUsingMem(vector<int> &val, vector<int> &wt, int capacity, int index, vector<vector<int>> &dp)
+{
+    // basecase
+    if (index == 0)
+    {
+        if (capacity >= wt[index])
+        {
+            return val[index];
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    if (dp[capacity][index] != -1)
+        return dp[capacity][index];
+
+    int inc = 0;
+    if (capacity >= wt[index])
+    {
+        inc = val[index] + solveUsingMem(val, wt, capacity - wt[index], index - 1, dp);
+    }
+    int exec = 0 + solveUsingMem(val, wt, capacity, index - 1, dp);
+
+    dp[capacity][index] = max(inc, exec);
+
+    return dp[capacity][index];
+}
+
 int knapsack(int W, vector<int> &val, vector<int> &wt)
 {
     // code here
