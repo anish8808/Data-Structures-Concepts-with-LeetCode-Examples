@@ -60,6 +60,40 @@ int solveUsingMem(vector<int> &val, vector<int> &wt, int capacity, int index, ve
     return dp[capacity][index];
 }
 
+// solve using tab method
+
+int solveUsingTab(int capacity, vector<int> &val, vector<int> &wt, int index)
+{
+    // 1st- step create dp array
+    vector<vector<int>> dp(capacity + 1, vector<int>(index + 2, 0));
+
+    // 2nd step initalised the dp array by analysing the base case
+    for (int w = wt[0]; w <= capacity; w++)
+    {
+        dp[w][0] = val[0];
+    }
+
+    // 3rd step reverse the paramteres of memoisation technique and copy paste logic
+    // capaciy [W to 0]
+    // index [n-1 , 0]
+
+    for (int w = 0; w <= capacity; w++)
+    {
+        for (int indexx = 1; indexx <= index; indexx++)
+        {
+            int inc = 0;
+            if (w >= wt[indexx])
+            {
+                inc = val[indexx] + dp[w - wt[indexx]][indexx - 1];
+            }
+            int exec = 0 + dp[w][indexx - 1];
+
+            dp[w][indexx] = max(inc, exec);
+        }
+    }
+
+    return dp[capacity][index];
+}
 int knapsack(int W, vector<int> &val, vector<int> &wt)
 {
     // code here
