@@ -16,4 +16,7 @@ int main()
     reverse(arr.begin(), arr.end());
     for (auto i : arr)
         cout << arr[i] << " ";
+    reverse(arr.begin(), arr.end());
+    for (auto i : arr)
+        cout << arr[i] << " ";
 }
