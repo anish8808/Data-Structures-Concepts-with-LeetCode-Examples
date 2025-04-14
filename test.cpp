@@ -19,4 +19,11 @@ int main()
     reverse(arr.begin(), arr.end());
     for (auto i : arr)
         cout << arr[i] << " ";
+
+    while (n > 0)
+    {
+        int bit = n % 2;
+        arr.push_back(bit); //-->"0101"
+        n = n / 2;          //--> 5 --> 2 -->1
+    }
 }
