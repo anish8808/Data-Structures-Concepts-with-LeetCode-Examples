@@ -64,7 +64,7 @@ public:
     {
         unordered_map<int, bool> visited;
         cout << "DFS" << endl;
-        for (int src = 0; src < node; src++)  //always make sure the disconnected graphs as well
+        for (int src = 0; src < node; src++) // always make sure the disconnected graphs as well
         {
             if (!visited[src])
             {
@@ -86,7 +86,9 @@ int main()
     G.addEdges(4, 1, 0);
     G.addEdges(6, 1, 0);
 
+    cout << "Printing BFS" << endl;
     G.BFS(0);
     G.DFS(0);
+    cout << "Printing DFS " << endl;
     return 0;
 }
