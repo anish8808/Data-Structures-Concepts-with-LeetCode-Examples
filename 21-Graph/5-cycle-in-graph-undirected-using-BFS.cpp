@@ -6,6 +6,9 @@
 2 - directed graph --2 algo
     1- DFS
     2- BFS
+
+--> checking the cycle in the graph
+        cycle means if we satrt fromt the node the after following on path we will come to the same Node
 */
 
 #include <bits/stdc++.h>
