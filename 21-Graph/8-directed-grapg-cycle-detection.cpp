@@ -12,6 +12,7 @@ int main()
     g.addEdgesDirected(4, 5);
     g.addEdgesDirected(5, 6);
     g.addEdgesDirected(6, 2);
+    g.addEdgesDirected(6, 2);
 
     bool ans = false;
     int n = 6;
